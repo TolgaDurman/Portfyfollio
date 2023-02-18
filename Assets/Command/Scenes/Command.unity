@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731689, g: 0.13414702, b: 0.1210784, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -966,7 +966,7 @@ GameObject:
   - component: {fileID: 214635528}
   - component: {fileID: 214635527}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Play Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -990,8 +990,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -317}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 284, y: -315}
+  m_SizeDelta: {x: 160, y: 63.6918}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &214635527
 MonoBehaviour:
@@ -1014,11 +1014,11 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_NormalColor: {r: 0.7216163, g: 0.4138483, b: 0.9433962, a: 1}
+    m_HighlightedColor: {r: 0.6860726, g: 0.28230685, b: 0.9811321, a: 1}
+    m_PressedColor: {r: 0.38544735, g: 0.16273585, b: 0.6509434, a: 1}
+    m_SelectedColor: {r: 0.72156864, g: 0.4156863, b: 0.9450981, a: 1}
+    m_DisabledColor: {r: 0.4339623, g: 0.4339623, b: 0.4339623, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -1145,7 +1145,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Commands
+  m_text: 'Commands :'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6bd555ecb632131448f2eb3b226ee2a2, type: 2}
   m_sharedMaterial: {fileID: -4261808027747566445, guid: 6bd555ecb632131448f2eb3b226ee2a2, type: 2}
@@ -7614,6 +7614,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mover: {fileID: 3469287837155309210}
   displayer: {fileID: 1702720357}
+  playButton: {fileID: 214635527}
 --- !u!1 &1704058888
 GameObject:
   m_ObjectHideFlags: 0
@@ -9193,13 +9194,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 22.64
+  m_fontSizeBase: 22.64
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -9505,7 +9506,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2389cd6e6ee534ebbae27a418661daa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayer: {fileID: 1702720357}
   moveCompleteTime: 0.3
   ease:
     serializedVersion: 2

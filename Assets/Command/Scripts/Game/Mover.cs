@@ -6,8 +6,7 @@ namespace CommandPattern
 {
     public class Mover : MonoBehaviour
     {
-        public CommandsDisplayer displayer;
-        private WaitForSeconds waitTime;
+        public WaitForSeconds waitTime;
         public float moveCompleteTime = 1f;
         public AnimationCurve ease;
         private float easeTime;
@@ -60,20 +59,6 @@ namespace CommandPattern
                 yield return null;
             }
             GameManager.canInputGet = GameManager.isReplaying ? false : true;
-        }
-        public IEnumerator Replay(Queue<Command> commands)
-        {
-            int currentStep = 0;
-            while(commands.Count > 0)
-            {
-                displayer.ColorizeStep(currentStep);
-                currentStep++;
-                commands.Dequeue().Exec();
-                yield return waitTime;
-                yield return null;
-            }
-            GameManager.canInputGet = true;
-            GameManager.isReplaying = false;
         }
     }
 }

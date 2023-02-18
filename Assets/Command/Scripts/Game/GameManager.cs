@@ -2,6 +2,7 @@ using System.Collections;
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace CommandPattern
 {
@@ -22,6 +23,8 @@ namespace CommandPattern
         public static bool canInputGet;
 
         public CommandsDisplayer displayer;
+
+        public Button playButton;
 
 
         private void Awake()
@@ -51,8 +54,24 @@ namespace CommandPattern
             Command[] oldCommands = undoCommands.Reverse().ToArray();
             isReplaying = true;
             Queue<Command> queuedCommands = new Queue<Command>();
-            oldCommands.ToList().ForEach(x => queuedCommands.Enqueue(x));
-            mover.StartCoroutine(mover.Replay(queuedCommands));
+            oldCommands.ToList().ForEach(x => queuedCommands.Enqueue(x));   
+            StartCoroutine(Replay(queuedCommands));
+        }
+        public IEnumerator Replay(Queue<Command> commands)
+        {
+            playButton.enabled =false;
+            int currentStep = 0;
+            while(commands.Count > 0)
+            {
+                displayer.ColorizeStep(currentStep);
+                currentStep++;
+                commands.Dequeue().Exec();
+                yield return mover.waitTime;
+                yield return null;
+            }
+            canInputGet = true;
+            isReplaying = false;
+            playButton.enabled =true;
         }
         private void RedoCommand()
         {
