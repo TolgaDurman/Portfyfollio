@@ -1,1 +1,1 @@
-# GPP-Examples
+# Game Programming Patterns with examples!
