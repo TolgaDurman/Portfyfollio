@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "co.voxelstudio.voxelity": {
+      "version": "https://github.com/TolgaDurman/VoxelityCore.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "b0ea243ba4fd40ea38d27fbe69c7d3fcdd373456"
+    },
     "com.unity.collab-proxy": {
       "version": "1.17.7",
       "depth": 0,
