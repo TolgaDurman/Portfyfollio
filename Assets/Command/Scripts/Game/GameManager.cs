@@ -57,7 +57,7 @@ namespace CommandPattern
             oldCommands.ToList().ForEach(x => queuedCommands.Enqueue(x));   
             StartCoroutine(Replay(queuedCommands));
         }
-        public IEnumerator Replay(Queue<Command> commands)
+        private IEnumerator Replay(Queue<Command> commands)
         {
             playButton.enabled =false;
             int currentStep = 0;
