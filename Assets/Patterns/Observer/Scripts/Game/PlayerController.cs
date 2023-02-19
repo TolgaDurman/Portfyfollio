@@ -8,6 +8,9 @@ namespace ObserverPattern
     {
         public float moveSpeed = 4f;
         private Rigidbody m_RigidBody;
+        public Transform gfx_base;
+        private float turnSmoothTime = 0.05f;
+        private float turnSmoothVelocity;
 
         private Vector3 velocity = Vector3.zero;
         private void Awake()
@@ -18,6 +21,13 @@ namespace ObserverPattern
         {
             velocity.x = Input.GetAxisRaw("Horizontal");
             velocity.z = Input.GetAxisRaw("Vertical");
+
+            if (velocity.magnitude > 0.0f)
+            {
+                float targetAngle = Mathf.Atan2(velocity.x,velocity.z) * Mathf.Rad2Deg;
+                float angle = Mathf.SmoothDampAngle(gfx_base.eulerAngles.y,targetAngle,ref turnSmoothVelocity,turnSmoothTime);
+                gfx_base.rotation = Quaternion.Euler(0f,angle,0f);
+            }
         }
         private void FixedUpdate()
         {
