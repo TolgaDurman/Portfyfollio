@@ -6,6 +6,6 @@ namespace ObserverPattern
 {
     public abstract class Observer
     {
-        public abstract void OnNotify(ObserverEvent observedEvent);
+        public abstract void OnNotify();
     }
 }

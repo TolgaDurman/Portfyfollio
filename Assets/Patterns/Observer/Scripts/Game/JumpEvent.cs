@@ -1,24 +1,27 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace ObserverPattern
 {
-    public class JumpEvent : ObserverEvent
+    public class JumpEvent : BoxEvents
     {
-        private List<Transform> jumpers = new List<Transform>(); 
+        private Rigidbody jumper;
+
+        public JumpEvent(Rigidbody jumper)
+        {
+            this.jumper = jumper;
+        }
+
         public override void OnEventExecute()
         {
-            
+            JumpJumper();
         }
-        public void AssignObservers(Transform jumper)
+
+        private void JumpJumper()
         {
-            jumpers.Add(jumper);
-        }
-        public void RemoveObserver(Transform jumper)
-        {
-            if(jumpers.Contains(jumper))
-                jumpers.Remove(jumper);
+            jumper.AddForce(Vector3.up * 150f);
         }
     }
 }

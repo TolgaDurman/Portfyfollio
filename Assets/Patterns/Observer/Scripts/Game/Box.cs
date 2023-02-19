@@ -6,16 +6,18 @@ namespace ObserverPattern
 {
     public class Box : Observer
     {
-        private ObserverEvent observedEvent;
+        private GameObject gameObject;
+        private BoxEvents observerEvent;
 
-        public Box(ObserverEvent observedEvent)
+        public Box(GameObject gameObject, BoxEvents observerEvent)
         {
-            this.observedEvent = observedEvent;
+            this.gameObject = gameObject;
+            this.observerEvent = observerEvent;
         }
 
-        public override void OnNotify(ObserverEvent observedEvent)
+        public override void OnNotify()
         {
-            
+            observerEvent.OnEventExecute();
         }
     }
 }
