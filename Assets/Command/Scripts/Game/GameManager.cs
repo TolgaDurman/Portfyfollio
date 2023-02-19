@@ -59,7 +59,7 @@ namespace CommandPattern
         }
         private IEnumerator Replay(Queue<Command> commands)
         {
-            playButton.enabled =false;
+            playButton.interactable =false;
             int currentStep = 0;
             while(commands.Count > 0)
             {
@@ -71,7 +71,7 @@ namespace CommandPattern
             }
             canInputGet = true;
             isReplaying = false;
-            playButton.enabled =true;
+            playButton.interactable =true;
         }
         private void RedoCommand()
         {
