@@ -40,6 +40,10 @@ namespace CommandPattern
             StartCoroutine(MoveToPosition(Vector3.right));
             currentPos.x += 1;
         }
+        public void ResetPosition()
+        {
+            currentPos = new Vector2Int();
+        }
 
         /// <summary>
         /// Move with ease
