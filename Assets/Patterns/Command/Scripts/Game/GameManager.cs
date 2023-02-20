@@ -51,6 +51,7 @@ namespace CommandPattern
         public void Replay()
         {
             mover.transform.position = startPosition;
+            mover.ResetPosition();
             Command[] oldCommands = undoCommands.Reverse().ToArray();
             isReplaying = true;
             Queue<Command> queuedCommands = new Queue<Command>();
