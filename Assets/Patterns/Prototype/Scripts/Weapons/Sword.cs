@@ -1,19 +1,18 @@
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace PrototypePattern
 {
     public class Sword : _Weapon
     {
-        private float shootRate;
+        private float damage;
         private int ammoCapacity;
         private float reloadTime;
 
         private static int swordCount;
 
-        public Sword(float shootRate, int ammoCapacity, float reloadTime)
+        public Sword(float damage, int ammoCapacity, float reloadTime)
         {
-            this.shootRate = shootRate;
+            this.damage = damage;
             this.ammoCapacity = ammoCapacity;
             this.reloadTime = reloadTime;
         }
@@ -21,18 +20,12 @@ namespace PrototypePattern
         public override _Weapon Clone()
         {
             swordCount++;
-            return new Sword(shootRate, ammoCapacity, reloadTime);
+            return new Sword(damage, ammoCapacity, reloadTime);
         }
 
         public override void Shoot()
         {
-            Shot();
-        }
-
-        private async void Shot()
-        {
-            await Task.Delay((int)(shootRate*1000));
-            Debug.Log($"Sword{swordCount} attack!");
+            Debug.Log($"Sword{swordCount} attack! damage = {damage} , ammo cap = {ammoCapacity}");
         }
     }
 }

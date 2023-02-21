@@ -15,10 +15,10 @@ namespace PrototypePattern
 
         private void Start()
         {
-            bombPrototype = new Bomb(shootRate: 0f, ammoCapacity: 1, reloadTime: 4f);
-            bowPrototype = new Bow(shootRate: 1f, ammoCapacity: 4, reloadTime: 1f);
-            gunPrototype = new Gun(shootRate: 0.2f, ammoCapacity: 12, reloadTime: 0.4f);
-            swordPrototype = new Sword(shootRate: 2f, ammoCapacity: 1, reloadTime: 4f);
+            bombPrototype = new Bomb(damage: 0f, ammoCapacity: 1, reloadTime: 4f);
+            bowPrototype = new Bow(damage: 1f, ammoCapacity: 4, reloadTime: 1f);
+            gunPrototype = new Gun(damage: 0.2f, ammoCapacity: 12, reloadTime: 0.4f);
+            swordPrototype = new Sword(damage: 2f, ammoCapacity: 0, reloadTime: 4f);
 
             weaponSpawners = new Spawner[4]
             {
@@ -30,7 +30,10 @@ namespace PrototypePattern
         }
         private void Update()
         {
-            if(Input.GetKeyDown(KeyCode.Space)) SpawnSword();
+            if (Input.GetKeyDown(KeyCode.Space)) SpawnSword();
+            
+            //We can't use Unity's Instantiate method because those objects have to inherit from Object
+            //Gun newGun = Instantiate(gunPrototype) as Gun;
         }
         public void SpawnSword()
         {
