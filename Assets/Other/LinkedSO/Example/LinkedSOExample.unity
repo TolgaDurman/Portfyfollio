@@ -209,7 +209,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 214635131}
-        m_TargetAssemblyTypeName: Exposable.ExposedItemExecuter, Assembly-CSharp
+        m_TargetAssemblyTypeName: LinkedSO.LinkedItemExecuter, Assembly-CSharp
         m_MethodName: Execute
         m_Mode: 1
         m_Arguments:
@@ -267,10 +267,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 214635126}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18f50885266cf45b58c9189e18c5ecda, type: 3}
+  m_Script: {fileID: 11500000, guid: fd67aed5a697b46c3afc2e07facfe130, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 135544068e134430fa4611986a06e65f, type: 2}
+  item: {fileID: 11400000, guid: 8335edb7da42643319fac4aaa7967e32, type: 2}
 --- !u!1 &709320316
 GameObject:
   m_ObjectHideFlags: 0
@@ -780,8 +780,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1326139793}
   - component: {fileID: 1326139794}
-  - component: {fileID: 1326139795}
   - component: {fileID: 1326139796}
+  - component: {fileID: 1326139797}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -862,8 +862,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1326139795}
-        m_TargetAssemblyTypeName: Exposable.Demo.ExposedValueSetterSlider, Assembly-CSharp
+      - m_Target: {fileID: 1326139797}
+        m_TargetAssemblyTypeName: LinkedSO.Demo.LinkedColorSetterSlider, Assembly-CSharp
         m_MethodName: SliderValue
         m_Mode: 0
         m_Arguments:
@@ -874,22 +874,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1326139795
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1326139792}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 828dfb10b47b543c7a400d84c8862d81, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  handleImage: {fileID: 709320318}
-  color: {fileID: 11400000, guid: 135544068e134430fa4611986a06e65f, type: 2}
-  gradient: {fileID: 1326139796}
-  updateOnChange: 0
 --- !u!114 &1326139796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -932,6 +916,22 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 7
     m_NumAlphaKeys: 2
+--- !u!114 &1326139797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1326139792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e67b27cf0579b45ffa92bffd1fb971ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handleImage: {fileID: 709320318}
+  color: {fileID: 11400000, guid: 8335edb7da42643319fac4aaa7967e32, type: 2}
+  gradient: {fileID: 1326139796}
+  updateOnChange: 1
 --- !u!1 &1330847682
 GameObject:
   m_ObjectHideFlags: 0
@@ -1343,4 +1343,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fc40cfed6df74edd9eb55cc9a4db5c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myObject: {fileID: 11400000, guid: 135544068e134430fa4611986a06e65f, type: 2}
+  myObject: {fileID: 11400000, guid: 8335edb7da42643319fac4aaa7967e32, type: 2}

@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2c082bd3b84e4719bebb896b8b2f202, type: 3}
-  m_Name: Box Color
+  m_Script: {fileID: 11500000, guid: 90c3727f1d47d49daae6256894b5b32c, type: 3}
+  m_Name: BoxColor
   m_EditorClassIdentifier: 
   shared: {r: 0, g: 0, b: 0, a: 0}

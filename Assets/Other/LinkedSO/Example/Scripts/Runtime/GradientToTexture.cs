@@ -4,7 +4,7 @@ using Voxelity.Extensions;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
-namespace Exposable.Demo
+namespace LinkedSO.Demo
 {
     public class GradientToTexture : MonoBehaviour
     {

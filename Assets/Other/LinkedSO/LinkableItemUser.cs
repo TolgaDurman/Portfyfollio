@@ -3,9 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Exposable
+namespace LinkedSO
 {
-    public abstract class ExposedItemUser<T> : MonoBehaviour where T : ExposedItem
+    public abstract class LinkableItemUser<T> : MonoBehaviour where T : LinkableSOItem
     {
         public T myObject;
     }

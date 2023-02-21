@@ -1,8 +1,8 @@
 using UnityEngine;
 
-namespace Exposable.Demo
+namespace LinkedSO.Demo
 {
-    public class BoxColorSetter : ExposedItemUser<ExposedColor>
+    public class BoxColorSetter : LinkableItemUser<LinkableColor>
     {
         private MeshRenderer _meshRenderer;
         private void Awake()

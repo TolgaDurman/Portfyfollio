@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEditor;
 using Voxelity.Editor;
 
-namespace Exposable.Demo
+namespace LinkedSO.Demo
 {
     [CustomEditor(typeof(GradientToTexture))]
     public class GradientToTextureEditor : Editor

@@ -1,10 +1,10 @@
 using System;
 using UnityEngine;
 
-namespace Exposable.Demo
+namespace LinkedSO.Demo
 {
-    [CreateAssetMenu(menuName ="Demo/Exposable/Color",fileName ="New Exposed Color")]
-    public class ExposedColor : ExposedItem
+    [CreateAssetMenu(menuName ="Demo/LinkedSO/Color",fileName ="New Linkable Color")]
+    public class LinkableColor : LinkableSOItem
     {
         public Color shared;
         public event Action<Color> GiveColor;

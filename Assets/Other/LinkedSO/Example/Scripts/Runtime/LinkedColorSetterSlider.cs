@@ -1,12 +1,12 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Exposable.Demo
+namespace LinkedSO.Demo
 {
-    public class ExposedValueSetterSlider : MonoBehaviour
+    public class LinkedColorSetterSlider : MonoBehaviour
     {
         public Image handleImage;
-        public ExposedColor color;
+        public LinkableColor color;
         public GradientToTexture gradient;
         public bool updateOnChange = false;
         public void SliderValue(float value)
