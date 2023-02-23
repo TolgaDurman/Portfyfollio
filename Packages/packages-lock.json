@@ -5,7 +5,7 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "b0ea243ba4fd40ea38d27fbe69c7d3fcdd373456"
+      "hash": "57b70194bc126012071c84df5419b6af587e90b1"
     },
     "com.unity.2d.common": {
       "version": "6.0.6",
