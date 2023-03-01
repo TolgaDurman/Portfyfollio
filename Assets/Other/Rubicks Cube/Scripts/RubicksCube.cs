@@ -128,9 +128,6 @@ public class RubicksCube : MonoBehaviour
         }
         return relatives.ToArray();
     }
-
-
-    [ContextMenu(nameof(SetObject))]
     public void SetObject()
     {
         parent.transform.GetChildGO().ForEach(x => DestroyImmediate(x));

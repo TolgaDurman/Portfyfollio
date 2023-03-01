@@ -2171,7 +2171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 1172287637}
-  cube: {fileID: 0}
+  cube: {fileID: 1445547303}
   selectedObjs: []
   dimension: {x: 1, y: 0, z: 0}
 --- !u!4 &330374944
