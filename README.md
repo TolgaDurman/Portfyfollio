@@ -36,7 +36,8 @@ Creating a Dynamic Rubicks Cube can be a great challange to create for newly com
 
 <img width="315" alt="Screenshot 2023-05-12 at 23 21 54" src="https://github.com/TolgaDurman/Portfyfollio/assets/56696405/d7910ccc-2362-4285-a4c5-fa48e1e067eb">
 
-[Rubick Cube Creator Asset Store]([https://pages.github.com/](https://assetstore.unity.com/packages/templates/packs/rubick-cube-creator-254138)).
+[Rubick Cube Creator Asset Store](https://assetstore.unity.com/packages/templates/packs/rubick-cube-creator-254138)
+
 [Video](https://www.youtube.com/watch?v=UtpFlkLpzt4&ab_channel=YourGameDev)
 
 ## **Linked ScriptableObject**
