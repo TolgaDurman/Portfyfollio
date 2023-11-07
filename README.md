@@ -1,6 +1,8 @@
 # Patterns
+
 [My Twitter](https://twitter.com/TolgaDurman)
-**Observer Pattern**
+
+## **Observer Pattern**
 
 https://github.com/TolgaDurman/Portfyfollio/assets/56696405/59a57156-ae8e-4e09-b142-84af349bace6
 
