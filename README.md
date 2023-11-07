@@ -1,4 +1,4 @@
-# Patterns
+# Patterns [Twitter](https://twitter.com/TolgaDurman)
 
 **Observer Pattern**
 
@@ -10,7 +10,8 @@ Observer Pattern in Unity: Decouple the sender (subject) from multiple receivers
 
 ## **Command Pattern**
 
-Uploading Command Patter.mp4…
+
+https://github.com/TolgaDurman/Portfyfollio/assets/56696405/254eeb86-b932-4bc4-b564-1678fef09a91
 
 
 Command Pattern in Unity: Encapsulate a request as an object to parameterize clients with different requests, queue or log requests, and support undoable operations. Useful for input handling, AI, and UI actions.
