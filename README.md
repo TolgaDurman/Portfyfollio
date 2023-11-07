@@ -8,14 +8,14 @@ https://github.com/TolgaDurman/Portfyfollio/assets/56696405/59a57156-ae8e-4e09-b
 Observer Pattern in Unity: Decouple the sender (subject) from multiple receivers (observers) allowing them to react dynamically to changes. Use this pattern to notify UI elements, game state, or other components about specific events or changes in your Unity project. It's especially helpful for creating responsive interfaces, managing in-game events, and handling data synchronization between different parts of your game.
 
 
-**Command Pattern**
+## **Command Pattern**
 
 Uploading Command Patter.mp4…
 
 
 Command Pattern in Unity: Encapsulate a request as an object to parameterize clients with different requests, queue or log requests, and support undoable operations. Useful for input handling, AI, and UI actions.
 
-**Flyweight Pattern**
+## **Flyweight Pattern**
 
 
 https://github.com/TolgaDurman/Portfyfollio/assets/56696405/e0a703e1-f7c4-427f-8d93-4af0bc4bcb2f
@@ -25,7 +25,7 @@ Flyweight Pattern in Unity: Optimize memory usage and performance by sharing com
 
 #Tools & Assets
 
-**Rubicks Cube**
+## **Rubicks Cube**
 
 https://github.com/TolgaDurman/Portfyfollio/assets/56696405/e312e7d5-7271-4cfd-8528-a19f415f7b5b
 
@@ -38,13 +38,13 @@ Creating a Dynamic Rubicks Cube can be a great challange to create for newly com
 [Rubick Cube Creator]([https://pages.github.com/](https://assetstore.unity.com/packages/templates/packs/rubick-cube-creator-254138)).
 [Video](https://www.youtube.com/watch?v=UtpFlkLpzt4&ab_channel=YourGameDev)
 
-**Linked ScriptableObject**
+## **Linked ScriptableObject**
 
 https://github.com/TolgaDurman/Portfyfollio/assets/56696405/f4a971de-b656-49ee-9042-ae121b491fce
 
 Linked scriptableobjects is a great way to simplify sharing data across the objects. As you seen in the video the arrow shares its color with the LinkedSO and cube listens and updates the changes on the run. This way you don't need to dependencies of any sort.
 
-**Renderer**
+## **Renderer**
 
 https://github.com/TolgaDurman/Portfyfollio/assets/56696405/223587fb-0f49-496e-ac45-e3ba45185fd9
 
