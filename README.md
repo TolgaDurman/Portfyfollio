@@ -50,7 +50,7 @@ Linked scriptableobjects is a great way to simplify sharing data across the obje
 
 https://github.com/TolgaDurman/Portfyfollio/assets/56696405/223587fb-0f49-496e-ac45-e3ba45185fd9
 
-This was my solution tool to easen getting unity scene objects as Textures with rendering them on the scene.
+This was my solution tool to getting unity scene objects as Textures with rendering them on the scene.
 
 
 ## Resources
