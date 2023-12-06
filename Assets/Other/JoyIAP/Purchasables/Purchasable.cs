@@ -3,13 +3,37 @@ using System;
 namespace JoyIAP
 {
     [Serializable]
-    public class Purchasable
+    public class Purchasable : IDisposable
     {
+        private IAPManager IAPManager;
+        public PurchasableData Data;
         public event Action OnPurchaseSuccess;
-        public PurchasableData Data { get; private set; }
-        public Purchasable(PurchasableData data)
+
+        private bool _initialized = false;
+        public void Initialize(IAPManager iapManager)
         {
-            Data = data;
+            OnPurchaseSuccess = null;
+            if (_initialized)
+            {
+                return;
+            }
+            _initialized = true;
+            IAPManager = iapManager;
+        }
+        public void Purchase()
+        {
+            if(!_initialized)
+            {
+                throw new Exception("Purchasable is not initialized");
+            }
+            IAPManager.Purchase(this);
+        }
+
+        public void Dispose()
+        {
+            OnPurchaseSuccess = null;
+            IAPManager = null;
+            _initialized = false;
         }
     }
 }

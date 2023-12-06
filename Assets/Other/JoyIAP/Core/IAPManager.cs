@@ -1,33 +1,42 @@
-using System.Collections.Generic;
+using System;
+using Unity.Services.Core;
 using UnityEngine;
 using UnityEngine.Purchasing;
 using UnityEngine.Purchasing.Extension;
 
 namespace JoyIAP
 {
-    public class IAPManager : IDetailedStoreListener
+    public class IAPManager : IDetailedStoreListener, IDisposable
     {
         private IStoreController _controller;
-        private Queue<Purchasable> _purchasables = new Queue<Purchasable>();
-        public IAPManager(List<Purchasable> purchasables)
+        private PurchasableObjectsList _purchasables;
+        public IAPManager()
         {
-            purchasables.ForEach(purchasable =>
+            ConfigurationBuilder builder = ConfigurationBuilder.Instance(StandardPurchasingModule.Instance());
+            _purchasables = Resources.Load<PurchasableObjectsList>("PurchasableObjectsList");
+            Debug.Log("Purchasables found :" + _purchasables.name);
+            foreach (var purchasableObject in _purchasables.PurchasableObjects)
             {
-                if (!purchasable.Data.Tag.Equals(null))
-                {
-                    _purchasables.Enqueue(purchasable);
-                }
-            });
-
-            var builder = ConfigurationBuilder.Instance(StandardPurchasingModule.Instance());
-
-            while (_purchasables.Count > 0)
-            {
-                var purchasable = _purchasables.Dequeue();
+                purchasableObject.Purchasable.Initialize(this);
+                Purchasable purchasable = purchasableObject.Purchasable;
                 builder.AddProduct(purchasable.Data.Id, purchasable.Data.Type);
             }
-
-            UnityPurchasing.Initialize(this, builder);
+            Initialize(builder);
+        }
+        private async void Initialize(ConfigurationBuilder builder)
+        {
+            try
+            {
+                await UnityServices.InitializeAsync();
+            }
+            catch (System.Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                UnityPurchasing.Initialize(this, builder);
+            }
         }
         public void OnInitialized(IStoreController controller, IExtensionProvider extensions)
         {
@@ -36,27 +45,38 @@ namespace JoyIAP
         }
         public void OnInitializeFailed(InitializationFailureReason error)
         {
-            throw new System.NotImplementedException();
+            Debug.LogWarning("IAPManager Cannot Initialize reason:" + error);
         }
 
         public void OnInitializeFailed(InitializationFailureReason error, string message)
         {
-            throw new System.NotImplementedException();
+            Debug.LogWarning("IAPManager Cannot Initialize reason:" + error + "\n Message:" + message);
+        }
+        public PurchaseProcessingResult ProcessPurchase(PurchaseEventArgs purchaseEvent)
+        {
+            Debug.Log("IAPManager Purchase Success product:" + purchaseEvent.purchasedProduct.receipt);
+            return PurchaseProcessingResult.Complete;
+        }
+        public void OnPurchaseFailed(Product product, PurchaseFailureReason failureReason)
+        {
+            Debug.LogWarning("IAPManager Purchase Failed product:" + product + "\n failureReason:" + failureReason);
         }
         public void OnPurchaseFailed(Product product, PurchaseFailureDescription failureDescription)
         {
-            throw new System.NotImplementedException();
+            Debug.LogWarning("IAPManager Purchase Failed product:" + product + "\n failureDescription:" + failureDescription);
         }
 
-
-        public PurchaseProcessingResult ProcessPurchase(PurchaseEventArgs purchaseEvent)
+        internal void Purchase(Purchasable purchasable)
         {
-            throw new System.NotImplementedException();
+            _controller.InitiatePurchase(purchasable.Data.Id);
         }
 
-        public void OnPurchaseFailed(Product product, PurchaseFailureReason failureReason)
+        public void Dispose()
         {
-            throw new System.NotImplementedException();
+            foreach (var item in _purchasables.PurchasableObjects)
+            {
+                item.Purchasable.Dispose();
+            }
         }
     }
 }
