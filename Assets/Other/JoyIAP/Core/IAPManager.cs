@@ -19,10 +19,10 @@ namespace JoyIAP
             ConfigurationBuilder builder = ConfigurationBuilder.Instance(StandardPurchasingModule.Instance());
             _purchasables = Resources.Load<PurchasableObjectsList>("PurchasableObjectsList");
             Debug.Log("Purchasables found :" + _purchasables.name);
-            SetupPurchasables();
+            SetupPurchasables(builder);
             Initialize(builder);
         }
-        private void SetupPurchasables()
+        private void SetupPurchasables(ConfigurationBuilder builder)
         {
             foreach (var item in _purchasables.PurchasableObjects)
             {
@@ -44,6 +44,7 @@ namespace JoyIAP
                         _subscriptions.Add(subscription);
                         break;
                 }
+                builder.AddProduct(item.Data.Id, item.Data.Type);
             }
         }
         private async void Initialize(ConfigurationBuilder builder)
