@@ -14,15 +14,15 @@ namespace JoyIAP
         [SerializeField] private TextMeshProUGUI _descriptionText;
         private void Start()
         {
-            _purchasableObject.Purchasable.OnPurchaseSuccess += OnPurchaseSuccessEvent.Invoke;
-            _priceText.text = _purchasableObject.Purchasable.Data.Price.ToString();
-            if(_descriptionText != null) _descriptionText.text = _purchasableObject.Purchasable.Data.Description;
+            _purchasableObject.OnPurchased += OnPurchaseSuccessEvent.Invoke;
+            _priceText.text = _purchasableObject.Data.Price.ToString();
+            if(_descriptionText != null) _descriptionText.text = _purchasableObject.Data.Description;
             GetComponent<Button>().onClick.AddListener(OnButtonClick);
         }
 
         private void OnButtonClick()
         {
-            _purchasableObject.Purchasable.Purchase();
+            _purchasableObject.Purchase();
         }
     }
 }

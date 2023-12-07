@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbaace88878351840945d04381c7aad5, type: 3}
   m_Name: ExampleObject
   m_EditorClassIdentifier: 
-  Purchasable:
-    Data:
-      Id: coin_500
-      Description: Get 500 Coins!
-      Type: 0
-      Price: 1.99
+  data:
+    Id: coin_500
+    Description: Get 500 Coins!
+    Type: 0
+    Price: 1.99

@@ -1,31 +1,22 @@
 using System;
+using UnityEngine.Events;
 
 namespace JoyIAP
 {
     [Serializable]
-    public class Purchasable : IDisposable
+    public class Purchasable
     {
         private IAPManager IAPManager;
         public PurchasableData Data;
-        public event Action OnPurchaseSuccess;
-
-        private bool _initialized = false;
-        public void Initialize(IAPManager iapManager)
+        public UnityAction OnPurchaseSuccess;
+        public Purchasable(PurchasableData data, IAPManager iapManager, UnityAction onPurchaseSuccess = null)
         {
-            OnPurchaseSuccess = null;
-            if (_initialized)
-            {
-                return;
-            }
-            _initialized = true;
+            Data = data;
             IAPManager = iapManager;
+            OnPurchaseSuccess = onPurchaseSuccess;
         }
         public void Purchase()
         {
-            if(!_initialized)
-            {
-                throw new Exception("Purchasable is not initialized");
-            }
             IAPManager.Purchase(this);
         }
 
@@ -33,7 +24,6 @@ namespace JoyIAP
         {
             OnPurchaseSuccess = null;
             IAPManager = null;
-            _initialized = false;
         }
     }
 }

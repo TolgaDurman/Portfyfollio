@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Unity.Services.Core;
 using UnityEngine;
 using UnityEngine.Purchasing;
@@ -10,18 +11,40 @@ namespace JoyIAP
     {
         private IStoreController _controller;
         private PurchasableObjectsList _purchasables;
+        private List<NonConsumable> _nonConsumables = new List<NonConsumable>();
+        private List<Consumable> _consumables = new List<Consumable>();
+        private List<Subscription> _subscriptions = new List<Subscription>();
         public IAPManager()
         {
             ConfigurationBuilder builder = ConfigurationBuilder.Instance(StandardPurchasingModule.Instance());
             _purchasables = Resources.Load<PurchasableObjectsList>("PurchasableObjectsList");
             Debug.Log("Purchasables found :" + _purchasables.name);
-            foreach (var purchasableObject in _purchasables.PurchasableObjects)
-            {
-                purchasableObject.Purchasable.Initialize(this);
-                Purchasable purchasable = purchasableObject.Purchasable;
-                builder.AddProduct(purchasable.Data.Id, purchasable.Data.Type);
-            }
+            SetupPurchasables();
             Initialize(builder);
+        }
+        private void SetupPurchasables()
+        {
+            foreach (var item in _purchasables.PurchasableObjects)
+            {
+                switch (item.Data.Type)
+                {
+                    case ProductType.NonConsumable:
+                        NonConsumable nonConsumable = new NonConsumable(item.Data, this, item.OnPurchased);
+                        item.Init(nonConsumable);
+                        _nonConsumables.Add(nonConsumable);
+                        break;
+                    case ProductType.Consumable:
+                        Consumable consumable = new Consumable(item.Data, this, item.OnPurchased);
+                        item.Init(consumable);
+                        _consumables.Add(consumable);
+                        break;
+                    case ProductType.Subscription:
+                        Subscription subscription = new Subscription(item.Data, this, item.OnPurchased);
+                        item.Init(subscription);
+                        _subscriptions.Add(subscription);
+                        break;
+                }
+            }
         }
         private async void Initialize(ConfigurationBuilder builder)
         {
@@ -75,7 +98,7 @@ namespace JoyIAP
         {
             foreach (var item in _purchasables.PurchasableObjects)
             {
-                item.Purchasable.Dispose();
+                item.Dispose();
             }
         }
     }
