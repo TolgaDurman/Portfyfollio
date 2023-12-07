@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-namespace JoyIAP
+namespace DW_IAP
 {
     [RequireComponent(typeof(Button))]
     public sealed class PurchaseButton : MonoBehaviour

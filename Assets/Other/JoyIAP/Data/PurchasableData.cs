@@ -1,6 +1,6 @@
 using UnityEngine.Purchasing;
 
-namespace JoyIAP
+namespace DW_IAP
 {
     [System.Serializable]
     public struct PurchasableData

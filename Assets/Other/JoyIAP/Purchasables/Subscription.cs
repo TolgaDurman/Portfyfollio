@@ -1,8 +1,8 @@
 using UnityEngine.Events;
 
-namespace JoyIAP
+namespace DW_IAP
 {
-    public class Subscription : Purchasable
+    public sealed class Subscription : Purchasable
     {
         public Subscription(PurchasableData data, IAPManager iapManager, UnityAction onPurchaseSuccess = null) : base(data, iapManager, onPurchaseSuccess)
         {

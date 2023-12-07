@@ -1,11 +1,11 @@
-using JoyIAP;
+using DW_IAP;
 using UnityEditor;
 using UnityEngine;
 
 namespace JoyIAPEditor
 {
     [CustomEditor(typeof(PurchasableObjectsList))]
-    public class PurchasableObjectsListEditor : Editor
+    public sealed class PurchasableObjectsListEditor : Editor
     {
         private PurchasableObjectsList _purchasableObjectsList;
 

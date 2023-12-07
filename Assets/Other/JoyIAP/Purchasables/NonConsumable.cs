@@ -1,8 +1,8 @@
 using UnityEngine.Events;
 
-namespace JoyIAP
+namespace DW_IAP
 {
-    public class NonConsumable : Purchasable
+    public sealed class NonConsumable : Purchasable
     {
         public NonConsumable(PurchasableData data, IAPManager iapManager, UnityAction onPurchaseSuccess = null) : base(data, iapManager, onPurchaseSuccess)
         {

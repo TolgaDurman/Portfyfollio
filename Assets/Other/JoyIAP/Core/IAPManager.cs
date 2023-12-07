@@ -5,17 +5,21 @@ using UnityEngine;
 using UnityEngine.Purchasing;
 using UnityEngine.Purchasing.Extension;
 
-namespace JoyIAP
+namespace DW_IAP
 {
-    public class IAPManager : IDetailedStoreListener, IDisposable
+    public sealed class IAPManager : IDetailedStoreListener, IDisposable
     {
         private IStoreController _controller;
+        private CloudProvider _cloudProvider;
         private PurchasableObjectsList _purchasables;
         private List<NonConsumable> _nonConsumables = new List<NonConsumable>();
         private List<Consumable> _consumables = new List<Consumable>();
         private List<Subscription> _subscriptions = new List<Subscription>();
-        public IAPManager()
+        private bool _useCloud;
+
+        public IAPManager(bool useCloud = false)
         {
+            _useCloud = useCloud;
             ConfigurationBuilder builder = ConfigurationBuilder.Instance(StandardPurchasingModule.Instance());
             _purchasables = Resources.Load<PurchasableObjectsList>("PurchasableObjectsList");
             Debug.Log("Purchasables found :" + _purchasables.name);
@@ -53,7 +57,7 @@ namespace JoyIAP
             {
                 await UnityServices.InitializeAsync();
             }
-            catch (System.Exception e)
+            catch (Exception e)
             {
                 throw e;
             }
@@ -65,7 +69,9 @@ namespace JoyIAP
         public void OnInitialized(IStoreController controller, IExtensionProvider extensions)
         {
             _controller = controller;
-            Debug.Log("IAPManager Initialized");
+            if (_useCloud)
+                    _cloudProvider = new CloudProvider(_controller);
+            Debug.Log("IAPManager Initialized Successfully / Cloud Enabled:" + _useCloud);
         }
         public void OnInitializeFailed(InitializationFailureReason error)
         {
@@ -79,7 +85,8 @@ namespace JoyIAP
         public PurchaseProcessingResult ProcessPurchase(PurchaseEventArgs purchaseEvent)
         {
             Debug.Log("IAPManager Purchase Success product:" + purchaseEvent.purchasedProduct.receipt);
-            return PurchaseProcessingResult.Complete;
+
+            return _useCloud ? PurchaseProcessingResult.Pending : PurchaseProcessingResult.Complete;
         }
         public void OnPurchaseFailed(Product product, PurchaseFailureReason failureReason)
         {
@@ -101,6 +108,9 @@ namespace JoyIAP
             {
                 item.Dispose();
             }
+            _purchasables = null;
+            _controller = null;
+            _cloudProvider?.Dispose();
         }
     }
 }

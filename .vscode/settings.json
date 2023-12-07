@@ -52,5 +52,5 @@
         "Temp/": true
     },
     "dotnet.preferCSharpExtension": true,
-    "dotnet.defaultSolution": "Portyfollio.sln"
+    "dotnet.defaultSolution": "PortyFollio.sln"
 }

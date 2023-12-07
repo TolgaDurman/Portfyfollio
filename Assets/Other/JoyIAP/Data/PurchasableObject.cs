@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace JoyIAP
+namespace DW_IAP
 {
     [CreateAssetMenu(fileName = "PurchasableObject", menuName = "JoyIAP/Purchasable Object")]
     public class PurchasableObject : ScriptableObject, IDisposable
@@ -10,21 +10,21 @@ namespace JoyIAP
         [SerializeField] private PurchasableData data;
         public PurchasableData Data => data;
         public UnityAction OnPurchased;
-        private Purchasable Purchasable;
+        private Purchasable _purchasable;
         public void Init<T>(T purchasable) where T : Purchasable
         {
-            Purchasable = purchasable;
-            Purchasable.OnPurchaseSuccess += () => OnPurchased?.Invoke();
+            _purchasable = purchasable;
+            _purchasable.OnPurchaseSuccess += () => OnPurchased?.Invoke();
         }
         public void Purchase()
         {
-            Purchasable.Purchase();
+            _purchasable.Purchase();
         }
 
         public void Dispose()
         {
-            Purchasable.Dispose();
-            Purchasable = null;
+            _purchasable.Dispose();
+            _purchasable = null;
             OnPurchased = null;
         }
     }

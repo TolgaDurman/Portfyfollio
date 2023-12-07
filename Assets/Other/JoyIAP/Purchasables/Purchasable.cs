@@ -1,10 +1,10 @@
 using System;
 using UnityEngine.Events;
 
-namespace JoyIAP
+namespace DW_IAP
 {
     [Serializable]
-    public class Purchasable
+    public abstract class Purchasable : IDisposable
     {
         private IAPManager IAPManager;
         public PurchasableData Data;

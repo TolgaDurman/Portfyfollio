@@ -1,8 +1,8 @@
 using UnityEngine.Events;
 
-namespace JoyIAP
+namespace DW_IAP
 {
-    public class Consumable : Purchasable
+    public sealed class Consumable : Purchasable
     {
         private bool _isConsumed;
 
