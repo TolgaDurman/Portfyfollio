@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dbaace88878351840945d04381c7aad5, type: 3}
-  m_Name: ExampleObject
+  m_Name: ExampleObject 1
   m_EditorClassIdentifier: 
   data:
-    Id: coin_500
-    Description: Get 500 Coins!
-    Type: 1
-    Price: 1.99
+    Id: no_ads
+    Description: Remove Ads
+    Type: 0
+    Price: 3.99

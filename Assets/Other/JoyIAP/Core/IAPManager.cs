@@ -85,6 +85,7 @@ namespace DW_IAP
         public PurchaseProcessingResult ProcessPurchase(PurchaseEventArgs purchaseEvent)
         {
             Debug.Log("IAPManager Purchase Success product:" + purchaseEvent.purchasedProduct.receipt);
+            Debug.Log(purchaseEvent.purchasedProduct.definition.id);
 
             return _useCloud ? PurchaseProcessingResult.Pending : PurchaseProcessingResult.Complete;
         }

@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PurchasableObjects:
   - {fileID: 11400000, guid: 1df142bcd3db79e4e80bde0e10bff0bf, type: 2}
+  - {fileID: 11400000, guid: 9a299bd95e3874385a91bb570a673e97, type: 2}
