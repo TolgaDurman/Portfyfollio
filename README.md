@@ -1,4 +1,4 @@
-[LinkedIn]([https://www.linkedin.com/in/tolgadurman/])
+[LinkedIn](https://www.linkedin.com/in/tolgadurman/)
 
 # Patterns
 
