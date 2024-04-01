@@ -1,4 +1,4 @@
-[My Twitter](https://twitter.com/TolgaDurman)
+[LinkedIn]([https://www.linkedin.com/in/tolgadurman/])
 
 # Patterns
 
