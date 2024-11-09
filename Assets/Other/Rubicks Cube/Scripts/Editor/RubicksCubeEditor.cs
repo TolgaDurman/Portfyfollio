@@ -17,11 +17,11 @@ public class RubicksCubeEditor : UnityEditor.Editor
     public override void OnInspectorGUI()
     {
         base.OnInspectorGUI();
-        if (VoxelityGUI.Button("Create Cube", 30))
+        if (VoxelityGUI.Button("Create Cube"))
         {
             targetObj.SetObject();
         }
-        if (VoxelityGUI.Button("Save Cube", 30))
+        if (VoxelityGUI.Button("Save Cube"))
         {
             string path = EditorUtility.OpenFolderPanel("Select target folder", "Assets", "");
             GameObject saved = PrefabUtility.SaveAsPrefabAsset(targetObj.gameObject, Path.Combine(path, targetObj.name + ".prefab"));

@@ -1,0 +1,22 @@
+{
+    "name": "QuickNotes",
+    "rootNamespace": "QuickNotes",
+    "references": [],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "com.unity.nuget.newtonsoft-json",
+            "expression": "",
+            "define": "NEWTONSOFT_JSON_NUGET"
+        }
+    ],
+    "noEngineReferences": false
+}
