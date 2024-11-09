@@ -44,7 +44,7 @@ namespace FPCharacterPhysics
 
         #region Input
 
-        public void OnMove(InputValue value)
+        private void OnMove(InputValue value)
         {
             if (TryGetPlayerModule<PlayerControls>(out var playerControls))
             {
@@ -52,11 +52,19 @@ namespace FPCharacterPhysics
             }
         }
 
-        public void OnJump(InputValue value)
+        private void OnJump(InputValue value)
         {
             if (TryGetPlayerModule<PlayerControls>(out var playerControls))
             {
                 playerControls.OnJump(value.isPressed);
+            }
+        }
+
+        private void OnLook(InputValue value)
+        {
+            if (TryGetPlayerModule<PlayerControls>(out var playerControls))
+            {
+                playerControls.OnLook(value.Get<Vector2>());
             }
         }
 
@@ -82,6 +90,7 @@ namespace FPCharacterPhysics
     {
         private Player player;
         public event Action<Vector2> Move = delegate { };
+        public event Action<Vector2> Look = delegate { };
         public event Action<bool> Jump = delegate { };
 
         public void InjectPlayer(Player playerComponent)
@@ -98,6 +107,11 @@ namespace FPCharacterPhysics
         {
             Jump(value);
         }
+
+        public void OnLook(Vector2 obj)
+        {
+            Look(obj);
+        }
     }
 
     public sealed class CharacterMovement : IPlayerModule, ITickModule
@@ -105,6 +119,7 @@ namespace FPCharacterPhysics
         private Player player;
         private Rigidbody physicsBody;
         private Vector2 moveDirection;
+        private Vector2 lookDirection;
 
         public void InjectPlayer(Player playerComponent)
         {
@@ -112,6 +127,7 @@ namespace FPCharacterPhysics
             if (player.TryGetPlayerModule<PlayerControls>(out var playerControls))
             {
                 playerControls.Move += Move;
+                playerControls.Look += Look;
                 playerControls.Jump += Jump;
             }
 
@@ -126,11 +142,20 @@ namespace FPCharacterPhysics
             moveDirection = value;
         }
 
+        private void Look(Vector2 value)
+        {
+            var look = new Vector2(0, value.x) * player.PlayerSettings.lookSpeed;
+            var lerp = Vector3.Lerp(physicsBody.rotation.eulerAngles,
+                physicsBody.rotation.eulerAngles + new Vector3(0, look.y, 0), Time.deltaTime);
+            physicsBody.MoveRotation(Quaternion.Euler(lerp));
+        }
+
         private void Jump(bool value)
         {
             if (value)
                 physicsBody.AddForce(Vector3.up * player.PlayerSettings.jumpForce, ForceMode.Impulse);
         }
+
 
         public void Tick(float deltaTime)
         {

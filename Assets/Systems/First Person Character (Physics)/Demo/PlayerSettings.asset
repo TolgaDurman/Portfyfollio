@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   jumpForce: 5
-  lookSpeed: 2
+  lookSpeed: 0.5
